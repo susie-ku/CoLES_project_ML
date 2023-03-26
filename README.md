@@ -17,6 +17,6 @@ The **Rosbank dataset** contains information on about 520,000,000 million record
 
 We have with one training dataset **train.csv**, in which for each transaction the date, amount, transaction type and client id, date of commission, amount, target flag and target sum are known.
 
-**test.csv** containing the same fields: cl id - unique client number, TRDATETIME - date of the transaction (number of the day in chronological order, starting from the specified date), trx category - category of transactions characterizing the type of transaction, amount - transaction amount (for anonymization, these amounts were transformed without loss of structure). Based on the file database, it is possible to determine whether the customer will remain
-a user of the bank or not. The target variable for the training dataset is in the **train.csv** file. In the **test.csv** file, we need to predict the churn rate for the specified data. Based on these data, it is necessary to carry out a binary classification. The quality of the solution is calculated as the proportion of
-correctly guessed age labels for all test cases - AUC ROC.
+**test.csv** containing the same fields: cl id - unique client number, TRDATETIME - date of the transaction (number of the day in chronological order, starting from the specified date), trx category - category of transactions characterizing the type of transaction, amount - transaction amount (for anonymization, these amounts were transformed without loss of structure). Based on the file database, it is possible to determine whether the customer will remain a user of the bank or not. The target variable for the training dataset is in the **train.csv** file. In the **test.csv** file, we need to predict the churn rate for the specified data. Based on these data, it is necessary to carry out a binary classification.
+
+The quality of the solution is calculated as the proportion of correctly guessed age labels for all test cases - AUC ROC.
