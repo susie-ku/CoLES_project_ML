@@ -3,7 +3,7 @@ Project is dedicated to studying the effect of pre-train data size, model size o
 
 In this work, we evaluate the performance of CoLES on several benchmark datasets for event sequence analysis. Our goal is to investigate the influence of pre-train data size and model size on model accuracy and NN saturation.
 
-We operate on two datasets with bank clients transactions information. **Sber dataset** contains information about transactions of bank customers. About 27,000,000 million records in volume. Each entry describes one banking transaction. For each of the ≈ 20, 000 test id, the participants need to use the trained model to predict which of the age groups the Client falls into.
+We operate on two datasets with bank clients transactions information. **Sber dataset** contains information about transactions of bank customers. About 27,000,000 million records in volume. Each entry describes one banking transaction. 
 
 Training transactions **train.csv**, in which the date, amount, type and id of the client are known for each transaction;
 
