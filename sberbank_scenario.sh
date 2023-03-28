@@ -7,7 +7,7 @@ for frac in $(seq 0.1 0.1 1.0); do
     for hidden_size in 64 128 256 512; do
 
         # Run the Python file with the current parameters
-        python Sberbank.py --frac $frac --hidden_size $hidden_size
+        python3 Sberbank.py --frac $frac --hidden_size $hidden_size
     
     done
 done
