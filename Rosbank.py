@@ -215,9 +215,9 @@ scores.append(clf_nb.score(x_test, y_test))
 models.append(clf_nb.__class__.__name__)
 
 df = pd.DataFrame([
-    args.hidden_size * 7,
-    args.frac * 7,
+    args.hidden_size * len(models),
+    args.frac * len(models),
     models,
     scores
-], columns=['a', 'b', 'c'])
+], columns=['hidden_size', 'frac', 'models', 'scores'])
 df.to_csv(f'rosbank_{args.hidden_size}_{args.frac}.csv')
