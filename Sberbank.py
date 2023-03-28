@@ -73,7 +73,6 @@ preprocessor = PandasDataPreprocessor(
     return_records=True,
 )
 
-os.system('time')
 whole_dataset = preprocessor.fit_transform(whole_dataset.sample(frac=args.frac, random_state=42))
 
 with open('preprocessor.p', 'wb') as f:
@@ -128,7 +127,6 @@ trainer = pl.Trainer(
     enable_progress_bar=False,
 )
 
-os.system('time')
 print(f'logger.version = {trainer.logger.version}')
 trainer.fit(model, train_dl)
 print(trainer.logged_metrics)
@@ -187,30 +185,30 @@ clf_lgbm = clf_lgbm.fit(x_train, y_train)
 scores.append(clf_lgbm.score(x_test, y_test))
 models.append(clf_lgbm.__class__.__name__)
 
-clf_knn =  KNeighborsClassifier(4)
-clf_knn.fit(x_train, y_train)
-scores.append(clf_knn.score(x_test, y_test))
-models.append(clf_knn.__class__.__name__)
+# clf_knn =  KNeighborsClassifier(4)
+# clf_knn.fit(x_train, y_train)
+# scores.append(clf_knn.score(x_test, y_test))
+# models.append(clf_knn.__class__.__name__)
 
-clf_dt = DecisionTreeClassifier(max_depth=2)
-clf_dt.fit(x_train, y_train)
-scores.append(clf_dt.score(x_test, y_test))
-models.append(clf_dt.__class__.__name__)
+# clf_dt = DecisionTreeClassifier(max_depth=2)
+# clf_dt.fit(x_train, y_train)
+# scores.append(clf_dt.score(x_test, y_test))
+# models.append(clf_dt.__class__.__name__)
 
-clf_mlp = MLPClassifier([100, 200, 100], alpha=1, max_iter=1000)
-clf_mlp.fit(x_train, y_train)
-scores.append(clf_mlp.score(x_test, y_test))
-models.append(clf_mlp.__class__.__name__)
+# clf_mlp = MLPClassifier([100, 200, 100], alpha=1, max_iter=1000)
+# clf_mlp.fit(x_train, y_train)
+# scores.append(clf_mlp.score(x_test, y_test))
+# models.append(clf_mlp.__class__.__name__)
 
-clf_nb = GaussianNB()
-clf_nb.fit(x_train, y_train)
-scores.append(clf_nb.score(x_test, y_test))
-models.append(clf_nb.__class__.__name__)
+# clf_nb = GaussianNB()
+# clf_nb.fit(x_train, y_train)
+# scores.append(clf_nb.score(x_test, y_test))
+# models.append(clf_nb.__class__.__name__)
 
 df = pd.DataFrame([
-    args.hidden_size * 7,
-    args.frac * 7,
+    args.hidden_size * len(models),
+    args.frac * len(models),
     models,
     scores
-], columns=['a', 'b', 'c'])
+], columns=['hidden_size', 'frac', 'models', 'scores'])
 df.to_csv(f'sberbank_{args.hidden_size}_{args.frac}.csv')
